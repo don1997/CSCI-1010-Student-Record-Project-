@@ -16,7 +16,7 @@ using namespace std;
 struct Node{
 
     int id;
-    string name;
+    char name;
     int grade;
 
     Node* next;
@@ -48,7 +48,7 @@ void lines(){
 }
 
 //checks if linked list is empty
-bool ifempty(Node *head){
+bool isEmpty(Node *head){
 
     if(head == NULL){
 
@@ -62,7 +62,7 @@ bool ifempty(Node *head){
     }
 }
 
-void insertAsFirst(Node *head, Node *last, int id, string name, int grade){
+void insertAsFirst(Node *head, Node *last, int id, char name, int grade){
 
 
     Node *temp  = new Node;
@@ -76,6 +76,57 @@ void insertAsFirst(Node *head, Node *last, int id, string name, int grade){
     head = temp;
     last = temp;
 }
+
+void insert(Node *head, Node *last, int id, char name, int grade){
+
+    if(isEmpty(head)){
+
+        insertAsFirst(head, last, id, name, grade);
+
+    }
+
+    else{
+
+
+    Node *temp = new Node;
+    
+    temp->id = id;
+    temp->name = name;
+    temp->grade = grade;
+    temp->next = NULL;
+    
+    last->next = temp;
+
+    last = temp;
+
+
+    }
+
+
+}
+
+//Displays current list
+void display(Node *current)
+{
+
+    if(isEmpty(current)){
+        
+        cout << "The list is empty.\n";
+
+    }//ENDIF
+    else{
+
+        cout << "The list contains: \n";
+        while(current != NULL){
+
+            cout << current->id << endl;
+            current = current->next;
+
+        }//ENDWHILE                                                               
+
+    }//ENDELSE
+
+}//ENDFUNC
 
 
 char menu(){
@@ -110,7 +161,8 @@ int main(void)
 
     //VAR
     char choice;
-    int num;
+    int id, grade;
+    char name;
     
     do{
         choice = menu();
@@ -118,16 +170,22 @@ int main(void)
         switch(choice)
         {
 
-            case '1': //insert();
-              
+            case '1':   cout << "Enter students ID: ";
+                        cin >> id;
+                        cout << "Enter students Name: ";
+                        cin >> name;
+                        cout << "Enter students Grade: ";
+                        cin >> grade;
+                        insert(head, last, id, name, grade);
+                        break;  
             case '2': //search();
-                
+                      break;
             case '3': //stats();
-            
+                      break;
             case '4': //remove();
-                
-            case '5': //display();
-                 
+                      break;
+            case '5': display(head);
+                      break;
             default: cout << "SYSTEM EXIT" << endl;
 
 
