@@ -16,7 +16,7 @@ using namespace std;
 struct Node{
 
     int id;
-    char name;
+    string name;
     int grade;
 
     Node* next;
@@ -62,7 +62,7 @@ bool isEmpty(Node *head){
     }
 }
 
-void insertAsFirst(Node *head, Node *last, int id, char name, int grade){
+void insertAsFirst(Node *&head, Node *&last, int id, string name, int grade){
 
 
     Node *temp  = new Node;
@@ -77,7 +77,7 @@ void insertAsFirst(Node *head, Node *last, int id, char name, int grade){
     last = temp;
 }
 
-void insert(Node *head, Node *last, int id, char name, int grade){
+void insert(Node *&head, Node *&last, int id, string name, int grade){
 
     if(isEmpty(head)){
 
@@ -119,14 +119,47 @@ void display(Node *current)
         cout << "The list contains: \n";
         while(current != NULL){
 
-            cout << current->id << endl;
-            current = current->next;
-
+        cout << current->id << endl;
+        cout << current->name << endl;
+        cout << current->grade << endl;
+        current = current->next;
         }//ENDWHILE                                                               
 
     }//ENDELSE
 
+
 }//ENDFUNC
+
+
+void search(Node *current, int StudentID){
+    
+    if(isEmpty(current)){
+        cout << "List is empty." << endl;
+    }
+    else{
+        
+        while(current != NULL){
+
+            if( current->id == StudentID){
+                cout << current->id << endl;
+                cout << current->name << endl;
+                cout << current->grade << endl;
+                break;
+
+            }//ENDIF
+            
+            current = current->next;
+
+        }//ENDWHILE
+    }//ENDELSE
+
+
+
+}//ENDFUNC
+
+
+
+
 
 
 char menu(){
@@ -161,8 +194,8 @@ int main(void)
 
     //VAR
     char choice;
-    int id, grade;
-    char name;
+    int id, grade,searchID;
+    string name;
     
     do{
         choice = menu();
@@ -178,7 +211,10 @@ int main(void)
                         cin >> grade;
                         insert(head, last, id, name, grade);
                         break;  
-            case '2': //search();
+            case '2': cout <<"Enter Student ID to Search: ";
+                      cin >> searchID;
+                        
+                      search(head, searchID);
                       break;
             case '3': //stats();
                       break;
