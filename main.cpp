@@ -141,6 +141,39 @@ void deleteNode(Node *&head, Node *&last, int studentID){
     }//ENDELSE
 }//ENDFUNC
 
+int stats(Node* current){
+    int sum = 0, kounter = 0;
+    float avg = 0.0;
+    while(current != NULL){
+       kounter++;
+       
+       sum = sum + current->grade;
+       
+       
+       avg = sum / kounter;
+       
+       current = current->next;
+    }
+
+return avg;
+
+
+
+
+}//ENDFUNC
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Displays current list
 void display(Node *current)
@@ -242,7 +275,7 @@ int main(void)
                         
                       search(head, searchID);
                       break;
-            case '3': //stats();
+            case '3':  cout << "The average is : " << stats(head) << endl;
                       break;
             case '4': cout << "Enter student ID you want to delete: ";
                       cin >> deleteID;
