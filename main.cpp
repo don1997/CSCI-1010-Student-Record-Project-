@@ -105,6 +105,43 @@ void insert(Node *&head, Node *&last, int id, string name, int grade){
 
 }
 
+void deleteNode(Node *&head, Node *&last, int studentID){
+
+    if(isEmpty(head)){
+            
+        cout << "The list is empty.\n";
+
+    }//ENDIF
+    
+    Node * currNode = head;
+
+    if(head->id == studentID){
+
+        head = head->next;
+        delete currNode;
+
+    }
+
+    else{
+
+            Node * prev = NULL; 
+            while(currNode != NULL && currNode->id != studentID){
+                prev = currNode;
+                currNode = currNode->next;
+            }//ENDWHILE
+    
+        if(currNode != NULL){
+
+            prev->next = currNode->next;
+            delete currNode;
+
+        }
+
+        
+    }//ENDELSE
+}//ENDFUNC
+
+
 //Displays current list
 void display(Node *current)
 {
@@ -116,12 +153,13 @@ void display(Node *current)
     }//ENDIF
     else{
 
-        cout << "The list contains: \n";
-        while(current != NULL){
+        lines();
+        cout << "|ID\tNAME\tGRADE|" << endl;
 
-        cout << current->id << endl;
-        cout << current->name << endl;
-        cout << current->grade << endl;
+        while(current != NULL){
+        cout <<"|" << current->id << "\t";
+        cout << current->name << "\t";
+        cout << current->grade << "   |" << endl;
         current = current->next;
         }//ENDWHILE                                                               
 
@@ -152,14 +190,7 @@ void search(Node *current, int StudentID){
 
         }//ENDWHILE
     }//ENDELSE
-
-
-
 }//ENDFUNC
-
-
-
-
 
 
 char menu(){
@@ -174,15 +205,10 @@ char menu(){
     cout << "5. Print all students" << endl;
     cout << "6. Exit the system\n\n" << endl;
     lines();
-    cout << "|--->>";
+    cout << "|--->> ";
     cin >> choice;
     return choice;
 }
-
-
-
-
-
 
 
 int main(void)
@@ -194,7 +220,7 @@ int main(void)
 
     //VAR
     char choice;
-    int id, grade,searchID;
+    int id, grade,searchID, deleteID;
     string name;
     
     do{
@@ -218,7 +244,9 @@ int main(void)
                       break;
             case '3': //stats();
                       break;
-            case '4': //remove();
+            case '4': cout << "Enter student ID you want to delete: ";
+                      cin >> deleteID;
+                      deleteNode(head, last, deleteID);
                       break;
             case '5': display(head);
                       break;
