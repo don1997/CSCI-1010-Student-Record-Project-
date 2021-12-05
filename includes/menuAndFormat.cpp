@@ -1,0 +1,40 @@
+#include<iostream>
+#include "menuAndFormat.h"
+using namespace std;
+
+void testIN()
+{
+
+    cout << "Test input" << endl;
+
+
+}
+
+void lines(){
+ 
+    for(int i = 0; i < 20; i++){
+        
+        cout << "-";
+        
+    }   
+    cout << "\n";
+
+
+}
+
+char menu(){
+
+    char choice;
+
+    cout << "---- CSCI 1010 Student Information Management System ----\n";
+    cout << "1. Add Student" << endl;
+    cout << "2. Search By ID" << endl;
+    cout << "3. Grade Statistics" << endl;
+    cout << "4. Remove a Student" << endl;
+    cout << "5. Print all students" << endl;
+    cout << "6. Exit the system\n\n" << endl;
+    lines();
+    cout << "|--->> ";
+    cin >> choice;
+    return choice;
+}                                                                           
