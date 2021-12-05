@@ -1,9 +1,51 @@
+//HEADER
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 #include<iostream>
-#include "functions.h"
-#include "menuAndFormat.h"
 
 using namespace std;
 
+struct Node{
+
+    int id;
+    string name;
+    int grade;
+
+    Node* next;
+
+};
+
+
+
+
+
+void testIN()
+{
+
+    cout << "Test input" << endl;
+
+
+}
+
+void lines(){
+ 
+    for(int i = 0; i < 20; i++){
+    
+        cout << "-";
+    
+    }
+    cout << "\n";
+
+
+}
 
 //checks if linked list is empty
 bool isEmpty(Node *head){
@@ -94,12 +136,6 @@ void deleteNode(Node *&head, Node *&last, int studentID){
             delete currNode;
 
         }
-        else{
-
-            cout << "ID does not exist." << endl;
-        
-    
-        }
 
         
     }//ENDELSE
@@ -127,55 +163,14 @@ return avg;
 }//ENDFUNC
 
 
-//FIND LARGEST
-int largest(Node* current){
 
-    //VAR
-    int largestGrade;
-   
-    largestGrade  = current->grade;
-     
 
-    while(current != NULL){
 
-        if(current->grade > largestGrade){
 
-            largestGrade = current->grade;
 
-        }
-        
-        current = current->next;
 
-    }
-    
-    return largestGrade;
 
-}
 
-//FIND SMALLEST
-int smallest(Node* current){
-
-    //VAR
-    int smallestGrade;
-   
-    smallestGrade  = current->grade;
-         
-
-    while(current != NULL){
-
-        if(current->grade < smallestGrade){
-
-            smallestGrade = current->grade;
-
-        }   
-            
-        current = current->next;
-
-    }   
-        
-    return smallestGrade;
-
-}
 
 
 
@@ -192,11 +187,11 @@ void display(Node *current)
     else{
 
         lines();
-        cout << "|ID\t\t\tNAME\t\t\tGRADE|" << endl;
+        cout << "|ID\tNAME\tGRADE|" << endl;
 
         while(current != NULL){
-        cout <<"|" << current->id << "\t\t\t";
-        cout << current->name << "\t\t\t";
+        cout <<"|" << current->id << "\t";
+        cout << current->name << "\t";
         cout << current->grade << "   |" << endl;
         current = current->next;
         }//ENDWHILE                                                               
@@ -223,15 +218,81 @@ void search(Node *current, int StudentID){
                 break;
 
             }//ENDIF
-            else{
             
-                cout << "ID does not exist." << endl;
-                break;
-
-            }
             current = current->next;
 
         }//ENDWHILE
     }//ENDELSE
 }//ENDFUNC
 
+
+char menu(){
+
+    char choice;
+
+    cout << "---- CSCI 1010 Student Information Management System ----\n";
+    cout << "1. Add Student" << endl;
+    cout << "2. Search By ID" << endl;
+    cout << "3. Grade Statistics" << endl;
+    cout << "4. Remove a Student" << endl;
+    cout << "5. Print all students" << endl;
+    cout << "6. Exit the system\n\n" << endl;
+    lines();
+    cout << "|--->> ";
+    cin >> choice;
+    return choice;
+}
+
+
+int main(void)
+{
+
+    //pointer Declaration
+    Node* head = NULL;
+    Node* last = NULL; 
+
+    //VAR
+    char choice;
+    int id, grade,searchID, deleteID;
+    string name;
+    
+    do{
+        int C = menu();
+        choice = C;
+            
+        switch(choice)
+        {
+
+            case '1':   cout << "Enter students ID: ";
+                        cin >> id;
+                        cout << "Enter students Name: ";
+                        cin >> name;
+                        cout << "Enter students Grade: ";
+                        cin >> grade;
+                        insert(head, last, id, name, grade);
+                        break;  
+            case '2': cout <<"Enter Student ID to Search: ";
+                      cin >> searchID;
+                        
+                      search(head, searchID);
+                      break;
+            case '3':  cout << "The average is : " << stats(head) << endl;
+                      break;
+            case '4': cout << "Enter student ID you want to delete: ";
+                      cin >> deleteID;
+                      deleteNode(head, last, deleteID);
+                      break;
+            case '5': display(head);
+                      break;
+            default: cout << "SYSTEM EXIT" << endl;
+
+
+        }//ENDSWITCH
+
+    
+
+    }while(choice != '6');
+    
+
+return 0;
+}
