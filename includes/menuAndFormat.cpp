@@ -1,15 +1,9 @@
 #include<iostream>
 #include "menuAndFormat.h"
+
 using namespace std;
 
-void testIN()
-{
-
-    cout << "Test input" << endl;
-
-
-}
-
+//Loops Lines 
 void lines(){
  
     for(int i = 0; i < 20; i++){
@@ -22,6 +16,7 @@ void lines(){
 
 }
 
+//DISPLAYS Menu and returns Choice
 char menu(){
 
     char choice;

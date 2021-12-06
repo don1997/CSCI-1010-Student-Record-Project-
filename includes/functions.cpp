@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 //checks if linked list is empty
 bool isEmpty(Node *head){
 
@@ -20,8 +19,8 @@ bool isEmpty(Node *head){
     }
 }
 
+//INSERT First Node
 void insertAsFirst(Node *&head, Node *&last, int id, string name, int grade){
-
 
     Node *temp  = new Node;
     
@@ -35,8 +34,10 @@ void insertAsFirst(Node *&head, Node *&last, int id, string name, int grade){
     last = temp;
 }
 
+//INSERT Node after first
 void insert(Node *&head, Node *&last, int id, string name, int grade){
-
+    
+    //IF EMPTY LIST
     if(isEmpty(head)){
 
         insertAsFirst(head, last, id, name, grade);
@@ -60,11 +61,12 @@ void insert(Node *&head, Node *&last, int id, string name, int grade){
 
     }
 
-
 }
 
+//DELETE Node
 void deleteNode(Node *&head, Node *&last, int studentID){
-
+    
+    //IF EMPTY LIST
     if(isEmpty(head)){
             
         cout << "The list is empty.\n";
@@ -100,11 +102,11 @@ void deleteNode(Node *&head, Node *&last, int studentID){
         
     
         }
-
         
     }//ENDELSE
 }//ENDFUNC
 
+//GET AVERAGE grade
 int stats(Node* current){
     int sum = 0, kounter = 0;
     float avg = 0.0;
@@ -120,9 +122,6 @@ int stats(Node* current){
     }
 
 return avg;
-
-
-
 
 }//ENDFUNC
 
@@ -177,13 +176,11 @@ int smallest(Node* current){
 
 }
 
-
-
-
 //Displays current list
 void display(Node *current)
 {
 
+    //IF EMPTY LIST
     if(isEmpty(current)){
         
         cout << "The list is empty.\n";
@@ -206,7 +203,7 @@ void display(Node *current)
 
 }//ENDFUNC
 
-
+//SEARCH student by ID and DISPLAY
 void search(Node *current, int StudentID){
     
     if(isEmpty(current)){

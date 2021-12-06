@@ -24,7 +24,8 @@ int main(void)
     char choice;
     int id, grade,searchID, deleteID;
     string name;
-    
+
+    //MENU    
     do{
         choice = menu();
             
@@ -60,7 +61,7 @@ int main(void)
 
     
 
-    }while(choice != '6');
+    }while(choice != '6');//ENDLOOP
     
 
 return 0;
