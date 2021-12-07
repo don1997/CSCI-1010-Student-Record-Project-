@@ -121,11 +121,11 @@ void display(Node *current)
     else{
 
         linesTable();
-        cout << "|ID\t\t\tNAME\t\t\tGRADE|" << endl;
+        cout << "|ID\t\tNAME\t\t\t\tGRADE|" << endl;
         linesTable();
 
         while(current != NULL){
-        cout <<"|" << current->id << "\t\t\t";
+        cout <<"|" << current->id << "\t\t";
         cout << current->name << "\t\t\t";
         cout << current->grade << "   |" << endl;
         current = current->next;

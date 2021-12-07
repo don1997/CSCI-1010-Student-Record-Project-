@@ -24,6 +24,7 @@ int main(void)
     int id, grade,searchID, deleteID;
     string name;
 
+    id = 0;
   
 
     //MENU    
@@ -33,8 +34,7 @@ int main(void)
         switch(choice)
         {
 
-            case '1':   cout << "Enter students ID: ";
-                        cin >> id;
+            case '1':   id = id + 1;
                         cout << "Enter students Name: ";
                         cin >> name;
                         cout << "Enter students Grade: ";
