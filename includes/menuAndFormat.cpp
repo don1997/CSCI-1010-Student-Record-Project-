@@ -1,6 +1,9 @@
 #include<iostream>
 #include "menuAndFormat.h"
 
+
+#include "stats.h"
+#include "functions.h"
 using namespace std;
 
 //Loops Lines 

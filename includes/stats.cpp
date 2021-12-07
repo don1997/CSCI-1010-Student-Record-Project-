@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "stats.h"
 
+#include "menuAndFormat.h"
 using namespace std;
 
 //GET AVERAGE grade

@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "menuAndFormat.h"
 
+#include "stats.h"
 using namespace std;
 
 //checks if linked list is empty
