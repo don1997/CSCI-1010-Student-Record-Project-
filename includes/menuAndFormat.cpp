@@ -16,6 +16,18 @@ void lines(){
 
 }
 
+//loops lines for student display table
+void linesTable(){
+
+    for(int i = 0; i < 54; i++){
+        
+        cout << "-";
+    
+    }
+    
+    cout << "\n";
+}
+
 //DISPLAYS Menu and returns Choice
 char menu(){
 

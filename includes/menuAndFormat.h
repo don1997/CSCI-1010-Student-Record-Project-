@@ -3,12 +3,9 @@
 
 #include<iostream>
 
-
-
-
-void testIN();
-
 void lines();
+
+void linesTable();
 
 char menu();
 

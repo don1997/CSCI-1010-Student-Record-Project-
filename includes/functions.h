@@ -3,7 +3,6 @@
 
 #include<iostream>
 
-
 class Node{
 public:
     int id; 
@@ -14,10 +13,6 @@ public:
 
 };
 
-
-
-
-
 //checks if linked list is empty
 bool isEmpty(Node*);
 
@@ -27,10 +22,8 @@ void insert(Node*&, Node*&, int, std::string, int);
 
 void deleteNode(Node*&, Node*&, int);
 
-int stats(Node*);
-int largest(Node*);
-int smallest(Node*);
 void display(Node*);
+
 void search(Node*, int);
 
 #endif

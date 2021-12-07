@@ -1,12 +1,21 @@
 #include<iostream>
 #include "functions.h"
+#include "stats.h"
 
 using namespace std;
 
 //GET AVERAGE grade
-int stats(Node* current){
+void stats(Node* current){
     int sum = 0, kounter = 0;
     float avg = 0.0;
+    
+    //IF EMPTY LIST break out of a function.
+    if(isEmpty(current)){
+            
+        cout << "The list is empty.\n";
+        return ;
+
+    }//ENDIF
     while(current != NULL){
        kounter++;
        
@@ -18,17 +27,24 @@ int stats(Node* current){
        current = current->next;
     }
 
-return avg;
+    cout << "The average is: " << avg << endl;
 
 }//ENDFUNC
 
 
 //FIND LARGEST
-int largest(Node* current){
+void largest(Node* current){
 
     //VAR
     int largestGrade;
-   
+    //IF EMPTY LIST break out of a function.
+    if(isEmpty(current)){
+            
+        
+        return ;
+
+    }//ENDIF
+    
     largestGrade  = current->grade;
      
 
@@ -44,16 +60,22 @@ int largest(Node* current){
 
     }
     
-    return largestGrade;
+    cout << "The largest grade is: " << largestGrade << endl;
 
 }
 
 //FIND SMALLEST
-int smallest(Node* current){
+void smallest(Node* current){
 
     //VAR
     int smallestGrade;
-   
+    //IF EMPTY LIST break out of a function.
+    if(isEmpty(current)){
+            
+        
+        return ;
+
+    }//ENDIF
     smallestGrade  = current->grade;
          
 
@@ -69,6 +91,6 @@ int smallest(Node* current){
 
     }   
         
-    return smallestGrade;
+    cout << "The smallest grade is: " << smallestGrade << endl;
 
 }

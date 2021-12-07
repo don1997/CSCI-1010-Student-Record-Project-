@@ -66,10 +66,11 @@ void insert(Node *&head, Node *&last, int id, string name, int grade){
 //DELETE Node
 void deleteNode(Node *&head, Node *&last, int studentID){
     
-    //IF EMPTY LIST
+    //IF EMPTY LIST break out of a function.
     if(isEmpty(head)){
             
         cout << "The list is empty.\n";
+        return;
 
     }//ENDIF
     
@@ -118,14 +119,16 @@ void display(Node *current)
     }//ENDIF
     else{
 
-        lines();
+        linesTable();
         cout << "|ID\t\t\tNAME\t\t\tGRADE|" << endl;
+        linesTable();
 
         while(current != NULL){
         cout <<"|" << current->id << "\t\t\t";
         cout << current->name << "\t\t\t";
         cout << current->grade << "   |" << endl;
         current = current->next;
+        linesTable();
         }//ENDWHILE                                                               
 
     }//ENDELSE
@@ -144,9 +147,9 @@ void search(Node *current, int StudentID){
         while(current != NULL){
 
             if( current->id == StudentID){
-                cout << current->id << endl;
-                cout << current->name << endl;
-                cout << current->grade << endl;
+                cout << "ID: " << current->id << endl;
+                cout << "Name: " << current->name << endl;
+                cout << "Grade: " << current->grade << endl;
                 break;
 
             }//ENDIF
@@ -161,4 +164,3 @@ void search(Node *current, int StudentID){
         }//ENDWHILE
     }//ENDELSE
 }//ENDFUNC
-

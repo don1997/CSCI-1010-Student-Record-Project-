@@ -1,11 +1,14 @@
+#ifndef STATS_H
+#define STATS_H
+#include"functions.h"
 #include<iostream>
 
-
 //GET AVERAGE grade
-int stats(Node*);
+void stats(Node*);
 
 //FIND LARGEST
-int largest(Node*);
+void largest(Node*);
 
 //FIND SMALLEST
-int smallest(Node*);
+void smallest(Node*);
+#endif

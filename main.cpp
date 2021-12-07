@@ -5,13 +5,12 @@
 //SUMMARY:    Student records program that allows user to insert, delete, 
 //            search, get grade statistics, and view all students that 
 //            are recorded into the system. 
-//
 
 #include<iostream>
 #include"includes/functions.h"
 #include"includes/menuAndFormat.h"
+#include"includes/stats.h"
 using namespace std;
-
 
 int main(void)
 {
@@ -24,6 +23,8 @@ int main(void)
     char choice;
     int id, grade,searchID, deleteID;
     string name;
+
+  
 
     //MENU    
     do{
@@ -45,8 +46,9 @@ int main(void)
                         
                       search(head, searchID);
                       break;
-            case '3': cout << "The average is : " << stats(head) << endl;
-                      cout << "The largest grade is:  " << largest(head) << endl;                   cout << "The smallest grade is: " << smallest(head) << endl;
+            case '3': stats(head);
+                      largest(head);                 
+                      smallest(head);
                       break;
             case '4': cout << "Enter student ID you want to delete: ";
                       cin >> deleteID;
